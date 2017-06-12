@@ -32,6 +32,7 @@ class TitleBarButton implements MenuItem.OnMenuItemClickListener, ActionItemBadg
     }
 
     boolean addToMenu(int index) {
+        
         setColor();
         if (hasIcon()) {
             createActionItem(index, buttonParams.label, buttonParams.showAsAction.action, buttonParams.icon, buttonParams.style, buttonParams.badgeCount);
@@ -110,5 +111,4 @@ class TitleBarButton implements MenuItem.OnMenuItemClickListener, ActionItemBadg
     public boolean onOptionsItemSelected(MenuItem menu) {
         return onMenuItemClick(menu);
     }
-
 }

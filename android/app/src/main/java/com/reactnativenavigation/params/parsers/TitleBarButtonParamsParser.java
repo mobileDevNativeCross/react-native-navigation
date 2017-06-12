@@ -34,14 +34,14 @@ public class TitleBarButtonParamsParser extends Parser {
         result.hint = bundle.getString("hint", "");
         result.eventId = bundle.getString("id");
         result.style = parseBadgeStyle(bundle.getString("badgeStyle"));
-        result.badgeCount = bundle.getInt("badgeCount");
+        result.badgeCount = bundle.getInt("badge");
         return result;
     }
 
     private ActionItemBadge.BadgeStyles parseBadgeStyle(String style) {
         if (style == null) {
             return ActionItemBadge.BadgeStyles.RED;
-        }
+         }
 
         switch (style) {
             case "grey":
