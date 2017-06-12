@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -125,7 +126,11 @@ public class TitleBar extends Toolbar {
 
     protected void addButtonInReverseOrder(List<? extends BaseTitleBarButtonParams> buttons, int i, TitleBarButton button) {
         final int index = buttons.size() - i - 1;
-        button.addToMenu(index);
+        if (buttons.get(index).badgeCount > 0){
+            button.addToMenuWithBadge(index);
+        } else {
+            button.addToMenu(index);
+        }
     }
 
     private boolean hasLeftButton() {

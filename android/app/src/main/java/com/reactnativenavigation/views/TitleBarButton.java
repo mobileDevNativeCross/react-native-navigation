@@ -31,7 +31,7 @@ class TitleBarButton implements MenuItem.OnMenuItemClickListener, ActionItemBadg
         this.navigatorEventId = navigatorEventId;
     }
 
-    boolean addToMenu(int index) {
+    boolean addToMenuWithBadge(int index) {
         
         setColor();
         if (hasIcon()) {
@@ -41,6 +41,22 @@ class TitleBarButton implements MenuItem.OnMenuItemClickListener, ActionItemBadg
         }
 
         return true;
+    }
+
+    MenuItem addToMenu(int index) {
+        MenuItem item = menu.add(Menu.NONE, Menu.NONE, index, buttonParams.label);
+        item.setShowAsAction(buttonParams.showAsAction.action);
+        item.setEnabled(buttonParams.enabled);
+        setIcon(item);
+        setColor();
+        item.setOnMenuItemClickListener(this);
+        return item;
+    }
+
+    private void setIcon(MenuItem item) {
+        if (hasIcon()) {
+            item.setIcon(buttonParams.icon);
+        }
     }
 
     private void createActionItem(Integer index, String label, Integer showAsAction) {

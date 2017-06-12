@@ -30,7 +30,7 @@ class TitleBarSearchButton extends TitleBarButton implements SearchView.OnQueryT
         super(menu, parent, buttonParams, navigatorEventId);
     }
 
-    boolean addToMenu(int index) {
+    boolean addToMenuWithBadge(int index) {
         ((Activity) parent.getContext()).getMenuInflater().inflate(R.menu.search_item, menu);
         MenuItem item = menu.findItem(R.id.toolbar_action_search);
         item.setOnMenuItemClickListener(this);
